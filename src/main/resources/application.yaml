@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: cybersec
+
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: cybersec-client
+            client-secret: 4eGQ2eTlBFQHPCQ0nMdqIGkZo09Q7Y1m
+            scope: openid, profile, email
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            authorization-grant-type: authorization_code
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:9091/realms/cybersec
+  
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9091/realms/cybersec
